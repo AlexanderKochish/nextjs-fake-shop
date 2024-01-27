@@ -5,8 +5,11 @@ export const productsApi = createApi({
   reducerPath: 'productsApi',
   baseQuery: fetchBaseQuery({ baseUrl: `${process.env.NEXT_PUBLIC_BASE_URL}` }),
   endpoints: (builder) => ({
+    getSearchProducts: builder.query({
+      query: (text) =>`products/search?q=${text}`
+    }),
     getAllProducts: builder.query({
-      query: (text) => text? `products/search?q=${text}` : `products`
+      query: (skip) =>`products?skip=${skip == 1? '1' : skip * 30}`
     }),
     getOneProduct: builder.query<IProduct, number>({
       query: (id) => `product/${id}`
@@ -15,13 +18,14 @@ export const productsApi = createApi({
       query: () => `products/categories`
     }),
     getCategory: builder.query({
-      query: (category) => category? `products/category/${category}`: `products`
+      query: (category) => `products/category/${category}`
     }),
   }),
 })
 
 export const { 
-  useGetAllProductsQuery, 
+  useGetAllProductsQuery,
+  useGetSearchProductsQuery, 
   useGetOneProductQuery, 
   useGetAllCategoriesQuery,
   useGetCategoryQuery

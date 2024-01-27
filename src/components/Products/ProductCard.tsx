@@ -1,15 +1,11 @@
 "use client"
 import { addToCart } from '@/app/lib/features/cart/cartSlice';
 import { useAppDispatch } from '@/app/lib/hooks';
-import { IProduct } from '@/interfaces/interfaces';
+import { IProductCardPropsType } from '@/interfaces/interfaces';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 import { FaCartArrowDown } from "react-icons/fa6";
-
-type IProductCardPropsType = {
-    product: IProduct
-}
 
 const ProductCard: React.FC<IProductCardPropsType> = ({ product }) => {
     const dispatch = useAppDispatch()

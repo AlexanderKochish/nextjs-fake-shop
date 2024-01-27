@@ -22,3 +22,7 @@ export interface IProduct {
 export type ICategories = {
     categories: Array<string>
 }
+
+export type IProductCardPropsType = {
+    product: IProduct
+}
