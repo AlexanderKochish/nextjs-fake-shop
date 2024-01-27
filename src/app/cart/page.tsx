@@ -1,7 +1,6 @@
 "use client"
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../lib/hooks'
-import { IProduct } from '@/interfaces/interfaces'
 import Image from 'next/image'
 import { removeCartProduct } from '../lib/features/cart/cartSlice'
 

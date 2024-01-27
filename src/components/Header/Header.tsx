@@ -7,7 +7,6 @@ import Link from 'next/link';
 import { useAppDispatch, useAppSelector } from '@/app/lib/hooks';
 import { setCategoryString, setSearchString } from '@/app/lib/features/search/searchSlice';
 import { useGetAllCategoriesQuery } from '@/app/lib/features/products/productsSlice';
-import { ICategories } from '@/interfaces/interfaces';
 
 const Header: React.FC = () => {
     const [openInput, setOpenInput] = useState<boolean>(false)
