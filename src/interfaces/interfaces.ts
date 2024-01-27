@@ -18,3 +18,7 @@ export interface IProduct {
     thumbnail: string;
     images: Array<string>;
 }
+
+export type ICategories = {
+    categories: Array<string>
+}
