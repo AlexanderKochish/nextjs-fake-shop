@@ -59,19 +59,21 @@ const Header: React.FC = () => {
                     </button>
                 </li>
                 <Link href={'/cart'}>
-                <li>
-                    <button className='inline-flex items-center'>
-                        <BsBasket className='mr-2'/> 
-                    Chart {products.length? products.length : ''}
-                    </button>
-                </li>
+                    <li>
+                        <button className='inline-flex items-center'>
+                            <BsBasket className='mr-2'/> 
+                        Chart {products.length? products.length : ''}
+                        </button>
+                    </li>
                 </Link>
-                <li>
-                    <button className='inline-flex items-center'>
-                        <AiOutlineLogin className='mr-2'/> 
-                    Login
-                    </button>
-                </li>
+                <Link href={'/login'}>
+                    <li>
+                        <button className='inline-flex items-center'>
+                            <AiOutlineLogin className='mr-2'/> 
+                        Login
+                        </button>
+                    </li>
+                </Link>
             </ul>
         </nav>
     </header>
