@@ -6,10 +6,10 @@ export const productsApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: `${process.env.NEXT_PUBLIC_BASE_URL}` }),
   endpoints: (builder) => ({
     getSearchProducts: builder.query({
-      query: (text) =>`products/search?q=${text}`
+      query: (name) => name && `products/search?q=${name}`
     }),
     getAllProducts: builder.query({
-      query: (skip) =>`products?skip=${skip == 1? '1' : skip * 30}`
+      query: (skip) => skip? `products?skip=${skip == 1? 1 : skip * 30}`:`product`
     }),
     getOneProduct: builder.query<IProduct, number>({
       query: (id) => `product/${id}`
@@ -18,7 +18,7 @@ export const productsApi = createApi({
       query: () => `products/categories`
     }),
     getCategory: builder.query({
-      query: (category) => `products/category/${category}`
+      query: (category) => category && `products/category/${category}`
     }),
   }),
 })
